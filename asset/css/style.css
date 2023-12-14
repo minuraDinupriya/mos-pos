@@ -3,3 +3,108 @@
     background-color: rgb(232, 232, 192);
     height: 80vh;
 }
+
+/* //////////////////////////////// */
+
+#b1{
+    background-color: red;
+    height: 300px;
+    width: 300px;
+    position: sticky;
+    top: 0;
+}
+
+#b2{
+    background-color: rgb(37, 184, 32);
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+
+.stick{
+    position: sticky;
+    bottom: 0;
+}
+
+.parent{
+    background-color: red;
+}
+.child-one{
+    background-color: rgb(0, 250, 250);
+    position: relative;
+    top: 10px;
+}
+.child-two{
+    background-color: rgb(32, 45, 222);
+}
+.child-three{
+    background-color: rgb(208, 129, 25);
+}
+
+/* //////////////////////////////  */
+body{
+    padding-top:40px;
+    background:#E6E6FA    
+    }
+    .card {
+        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    }
+    
+    .avatar-md {
+        height: 5rem;
+        width: 5rem;
+    }
+    
+    .fs-19 {
+        font-size: 19px;
+    }
+    
+    .primary-link {
+        color: #314047;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+    
+    a {
+        color: #02af74;
+        text-decoration: none;
+    }
+    
+    .bookmark-post .favorite-icon a, .job-box.bookmark-post .favorite-icon a {
+        background-color: #da3746;
+        color: #fff;
+        border-color: danger;
+    }
+    .favorite-icon a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #eff0f2;
+        border-radius: 6px;
+        color: rgba(173,181,189,.55);
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+    
+    
+    .candidate-list-box .favorite-icon {
+        position: absolute;
+        right: 22px;
+        top: 22px;
+    }
+    .fs-14 {
+        font-size: 14px;
+    }
+    .bg-soft-secondary {
+        background-color: rgba(116,120,141,.15)!important;
+        color: #74788d!important;
+    }
+    
+    .mt-1 {
+        margin-top: 0.25rem!important;
+    }
