@@ -1,5 +1,5 @@
-#bo{
-    position: sticky;
-    top: 0;
-    height: 400px;
+#add-to-cart{
+    right: 10px;
+    background-color: rgb(232, 232, 192);
+    height: 80vh;
 }
