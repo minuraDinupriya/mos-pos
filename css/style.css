@@ -1,5 +1,5 @@
-.bo{
-    background-color: aqua;
-    height: 200px;
-    width: 50px;
+#bo{
+    position: sticky;
+    top: 0;
+    height: 400px;
 }
