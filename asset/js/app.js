@@ -345,11 +345,11 @@ let burgerArray = [
     // Loop through the array
     array.forEach((item) => {
       // Use the .col class to specify the width of each card
-      let col = document.createElement("div");
-      col.classList.add("col-lg-3");
+      let div = document.createElement("div");
+      div.classList.add("col-lg-3");
       // Use the .card class to create a card element
       let card = document.createElement("div");
-      card.classList.add("card","wd","m-2");
+      card.classList.add("card","m-2");
       // Use the .card-body class to add a padded section within the card
       let cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
@@ -395,18 +395,19 @@ let burgerArray = [
       // Append the card body element to the card element
       card.appendChild(cardBody);
       // Append the card element to the col element
-      container.appendChild(card);
+      div.appendChild(card);
+      container.appendChild(div);
       // Append the col element to the row element
     //   row.appendChild(col);
     });
     // Append the row element to the container element
     // container.appendChild(row);
     // Return the container element
-    return container;
+    // return container;
   }
   
   // Call the function and pass the food array as an argument
-  let result = generateHTML(burgerArray);
+generateHTML(burgerArray);
   // Append the result to the document body
 //   document.body.appendChild(result);
   
