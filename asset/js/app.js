@@ -274,210 +274,82 @@ let burgerArray = [
     },
   ];
   
-  // ---------------------------------------------
-  
-  // // A function that takes an array of objects and generates Bootstrap cards
-  // function generateHTML(array) {
-  //   // Create a div element to contain the cards
-  //   let container = document.createElement("div");
-  //   // Use the .container class to add some padding and margin to the container
-  //   container.classList.add("container");
-  //   // Use the .row class to create a row of cards
-  //   let row = document.createElement("div");
-  //   row.classList.add("row");
-  //   // Loop through the array
-  //   array.forEach((item) => {
-  //     // Use the .col class to specify the width of each card
-  //     let col = document.createElement("div");
-  //     col.classList.add("col-md-4");
-  //     // Use the .card class to create a card element
-  //     let card = document.createElement("div");
-  //     card.classList.add("card");
-  //     // Use the .card-body class to add a padded section within the card
-  //     let cardBody = document.createElement("div");
-  //     cardBody.classList.add("card-body");
-  //     // Use the .card-title class to add a title to the card
-  //     let cardTitle = document.createElement("h5");
-  //     cardTitle.classList.add("card-title");
-  //     // Create a text node with the item name value
-  //     let cardTitleText = document.createTextNode(item.itemName);
-  //     // Append the text node to the card title element
-  //     cardTitle.appendChild(cardTitleText);
-  //     // Use the .card-text class to add some text to the card
-  //     let cardText = document.createElement("p");
-  //     cardText.classList.add("card-text");
-  //     // Create a text node with the item code, price, and discount values
-  //     let cardTextText = document.createTextNode(
-  //       `Item Code: ${item.itemCode}\nPrice: ${item.price}\nDiscount: ${
-  //         item.discount ? item.discount : "None"
-  //       }`
-  //     );
-  //     // Append the text node to the card text element
-  //     cardText.appendChild(cardTextText);
-  //     // Append the card title and card text elements to the card body element
-  //     cardBody.appendChild(cardTitle);
-  //     cardBody.appendChild(cardText);
-  //     // Append the card body element to the card element
-  //     card.appendChild(cardBody);
-  //     // Append the card element to the col element
-  //     col.appendChild(card);
-  //     // Append the col element to the row element
-  //     row.appendChild(col);
-  //   });
-  //   // Append the row element to the container element
-  //   container.appendChild(row);
-  //   // Return the container element
-  //   return container;
-  // }
-  
-  // A function that takes an array of objects and generates Bootstrap cards//
+
   function generateHTML(array) {
-    // Create a div element to contain the cards
-    // let container = document.createElement("div");
-    // Use the .container class to add some padding and margin to the container
-    // container.classList.add("container");
-    // Use the .row class to create a row of cards
-    // let row = document.createElement("div");
-    // row.classList.add("row");
 
     let container=document.querySelector(".itm");
-  //   row.classList.add("d-flex","flex-wrap");
-    // Loop through the array
+
     array.forEach((item) => {
-      // Use the .col class to specify the width of each card
+      
       let div = document.createElement("div");
       div.classList.add("col-lg-3");
-      // Use the .card class to create a card element
+      
       let card = document.createElement("div");
       card.classList.add("card","m-2");
-      // Use the .card-body class to add a padded section within the card
+      
       let cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
-      // Use the .card-title class to add a title to the card
+      
       let cardTitle = document.createElement("h6");
       cardTitle.classList.add("card-title");
-      // Create a text node with the name value
-      let cardTitleText = document.createTextNode(item.itemName);
-      // Append the text node to the card title element
-      cardTitle.appendChild(cardTitleText);
-      // Use the .card-text class to add some text to the card
-      let cardText = document.createElement("p");
-      cardText.classList.add("card-text");
-      // Create a text node with the description value
-      let cardTextText = document.createTextNode(item.itemCode);
-      // Append the text node to the card text element
-      cardText.appendChild(cardTextText);
-  
+      
+      
+      
+      
+      
       let image=document.createElement("img");
       image.src="./asset/images/pic.jpg";
       image.classList.add("card-img-top");
       cardBody.appendChild(image);
-  
-      // Append the card title and card text elements to the card body element
+      
+      
+      let cardTitleText = document.createTextNode(item.itemName);
+      cardTitle.appendChild(cardTitleText);
       cardBody.appendChild(cardTitle);
+
+
+      let cardText = document.createElement("p");
+      cardText.classList.add("card-text");
+      let cardTextText = document.createTextNode(item.itemCode);
+      cardText.appendChild(cardTextText);
       cardBody.appendChild(cardText);
+
   
       let priceTag=document.createElement("h5");
       let price=document.createTextNode(item.price);
       priceTag.appendChild(price);
       cardBody.appendChild(priceTag);
-  
-      let discountTag=document.createElement("h6");
-      let discount=document.createTextNode(item.discount);
-      discountTag.appendChild(discount);
-      cardBody.appendChild(discountTag);
-  
+
+
+      
+      //   Discount div start
+    let discountDiv=document.createElement("div");
+    
+    let discountSpan=document.createElement("span");
+    discountSpan.textContent="Discount : "
+    discountDiv.appendChild(discountSpan);
+    
+    let discountTag=document.createElement("span");
+    let discount=document.createTextNode(item.discount);
+    discountTag.appendChild(discount);
+    discountDiv.appendChild(discountTag);
+    
+    cardBody.appendChild(discountDiv);
+    //   Discount div end
+    
+
+
       let button=document.createElement("button");
       button.textContent="Add to Cart";
       button.classList.add("btn", "btn-danger");
       cardBody.appendChild(button);
-  
-      // Append the card body element to the card element
+
+
       card.appendChild(cardBody);
-      // Append the card element to the col element
       div.appendChild(card);
       container.appendChild(div);
-      // Append the col element to the row element
-    //   row.appendChild(col);
     });
-    // Append the row element to the container element
-    // container.appendChild(row);
-    // Return the container element
-    // return container;
   }
-  
-  // Call the function and pass the food array as an argument
-generateHTML(burgerArray);
-  // Append the result to the document body
-//   document.body.appendChild(result);
-  
-  // this works
-  
-  // // Call the function and pass the burger array as an argument
-  // let result = createHTML(burgerArray);
-  // // Append the result to the document body
-  // document.body.appendChild(result);
-  
-  // // ---------------------------------------------
-  
-  // // A function that takes an array of objects and generates Bootstrap cards with buttons
-  // function createHTML(array) {
-  //     // Create a div element to contain the cards
-  //     let container = document.createElement("div");
-  //     // Use the .container class to add some padding and margin to the container
-  //     container.classList.add("container");
-  //     // Use the .row class to create a row of cards
-  //     let row = document.createElement("div");
-  //     row.classList.add("row");
-  //     // Loop through the array
-  //     array.forEach((item) => {
-  //       // Use the .col class to specify the width of each card
-  //       let col = document.createElement("div");
-  //       col.classList.add("col-md-4");
-  //       // Use the .card class to create a card element
-  //       let card = document.createElement("div");
-  //       card.classList.add("card");
-  //       // Use the .card-body class to add a padded section within the card
-  //       let cardBody = document.createElement("div");
-  //       cardBody.classList.add("card-body");
-  //       // Use the .card-title class to add a title to the card
-  //       let cardTitle = document.createElement("h5");
-  //       cardTitle.classList.add("card-title");
-  //       // Create a text node with the item name value
-  //       let cardTitleText = document.createTextNode(item.itemName);
-  //       // Append the text node to the card title element
-  //       cardTitle.appendChild(cardTitleText);
-  //       // Use the .card-text class to add some text to the card
-  //       let cardText = document.createElement("p");
-  //       cardText.classList.add("card-text");
-  //       // Create a text node with the item code, price, and discount values
-  //       let cardTextText = document.createTextNode(
-  //         `Item Code: ${item.itemCode}\nPrice: ${item.price}\nDiscount: ${
-  //           item.discount ? item.discount : "None"
-  //         }`
-  //       );
-  //       // Append the text node to the card text element
-  //       cardText.appendChild(cardTextText);
-  //       // Create a button element with the text Add to Cart
-  //       let button = document.createElement("button");
-  //       button.textContent = "Add to Cart";
-  //       // Use the .btn and .btn-primary classes to style the button
-  //       button.classList.add("btn", "btn-primary");
-  //       // Append the card title, card text, and button elements to the card body element
-  //       cardBody.appendChild(cardTitle);
-  //       cardBody.appendChild(cardText);
-  //       cardBody.appendChild(button);
-  //       // Append the card body element to the card element
-  //       card.appendChild(cardBody);
-  //       // Append the card element to the col element
-  //       col.appendChild(card);
-  //       // Append the col element to the row element
-  //       row.appendChild(col);
-  //     });
-  //     // Append the row element to the container element
-  //     container.appendChild(row);
-  //     // Return the container element
-  //     return container;
-  //   }
-  
 
+
+generateHTML(burgerArray);
