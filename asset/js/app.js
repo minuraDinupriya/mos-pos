@@ -330,15 +330,17 @@ let burgerArray = [
   //   return container;
   // }
   
-  // A function that takes an array of objects and generates Bootstrap cards
+  // A function that takes an array of objects and generates Bootstrap cards//
   function generateHTML(array) {
     // Create a div element to contain the cards
-    let container = document.createElement("div");
+    // let container = document.createElement("div");
     // Use the .container class to add some padding and margin to the container
-    container.classList.add("container");
+    // container.classList.add("container");
     // Use the .row class to create a row of cards
-    let row = document.createElement("div");
-    row.classList.add("row");
+    // let row = document.createElement("div");
+    // row.classList.add("row");
+
+    let container=document.querySelector(".itm");
   //   row.classList.add("d-flex","flex-wrap");
     // Loop through the array
     array.forEach((item) => {
@@ -347,7 +349,7 @@ let burgerArray = [
       col.classList.add("col-lg-3");
       // Use the .card class to create a card element
       let card = document.createElement("div");
-      card.classList.add("card");
+      card.classList.add("card","wd","m-2");
       // Use the .card-body class to add a padded section within the card
       let cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
@@ -393,12 +395,12 @@ let burgerArray = [
       // Append the card body element to the card element
       card.appendChild(cardBody);
       // Append the card element to the col element
-      col.appendChild(card);
+      container.appendChild(card);
       // Append the col element to the row element
-      row.appendChild(col);
+    //   row.appendChild(col);
     });
     // Append the row element to the container element
-    container.appendChild(row);
+    // container.appendChild(row);
     // Return the container element
     return container;
   }
@@ -406,7 +408,7 @@ let burgerArray = [
   // Call the function and pass the food array as an argument
   let result = generateHTML(burgerArray);
   // Append the result to the document body
-  document.body.appendChild(result);
+//   document.body.appendChild(result);
   
   // this works
   

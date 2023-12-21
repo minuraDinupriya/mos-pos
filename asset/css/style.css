@@ -1,7 +1,10 @@
 #add-to-cart{
     right: 10px;
-    background-color: rgb(232, 232, 192);
+    background-color: rgb(235, 169, 154);
     height: 80vh;
+}
+.wd{
+    width: 15rem;
 }
 
 /* //////////////////////////////// */
