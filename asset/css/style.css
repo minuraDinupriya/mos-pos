@@ -52,7 +52,7 @@ body{
     background:#E6E6FA    
     }
     .card {
-        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+        box-shadow: 0 20px 27px 0 rgba(231, 62, 59, .5);
     }
     
     .avatar-md {
@@ -64,16 +64,16 @@ body{
         font-size: 19px;
     }
     
-    .primary-link {
+    /* .primary-link {
         color: #314047;
         -webkit-transition: all .5s ease;
         transition: all .5s ease;
-    }
+    } */
     
-    a {
+    /* a {
         color: #02af74;
         text-decoration: none;
-    }
+    } */
     
     .bookmark-post .favorite-icon a, .job-box.bookmark-post .favorite-icon a {
         background-color: #da3746;
