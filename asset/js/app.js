@@ -407,66 +407,68 @@ function generateHTML(array) {
 //   });
 // }
 
-// function updateCartList() {
-//   let totalValue = 0;
-//   cartList.innerHTML = ""; // Clear the existing list
+function updateCartList() {
+  let totalValue = 0;
+  cartList.innerHTML = ""; // Clear the existing list
 
-//   addedItems.forEach((item, index) => {
-//     let cartItem = document.createElement("li");
-//     cartItem.classList.add("cart-item");
+  addedItems.forEach((item, index) => {
+    let cartItem = document.createElement("li");
+    cartItem.classList.add("cart-item");
 
-//     let itemName = document.createElement("span");
-//     itemName.textContent = `${item.name} - ${item.price}`;
+    let itemName = document.createElement("span");
+    itemName.textContent = `${item.name} - Rs.${item.price}.00`;
+    let br = document.createElement("br");
+    itemName.appendChild(br);
 
-//     let itemCount = document.createElement("span");
-//     itemCount.textContent = `Count: ${item.count || 1}`; // Initial count
+    let itemCount = document.createElement("span");
+    itemCount.textContent = `Count: ${item.count || 1}`; // Initial count
 
-//     let increaseButton = document.createElement("button");
-//     increaseButton.textContent = "+";
-//     increaseButton.classList.add("btn", "btn-sm", "btn-success");
-//     increaseButton.onclick = () => {
-//       // Increase the count for the item
-//       addedItems[index].count = (addedItems[index].count || 0) + 1;
-//       itemCount.textContent = `Count: ${addedItems[index].count}`;
-//       updateCartList();
-//     };
+    let increaseButton = document.createElement("button");
+    increaseButton.textContent = "+";
+    increaseButton.classList.add("btn", "btn-sm", "btn-success");
+    increaseButton.onclick = () => {
+      // Increase the count for the item
+      addedItems[index].count = (addedItems[index].count || 0) + 1;
+      itemCount.textContent = `Count: ${addedItems[index].count}`;
+      updateCartList();
+    };
 
-//     let decreaseButton = document.createElement("button");
-//     decreaseButton.textContent = "-";
-//     decreaseButton.classList.add("btn", "btn-sm", "btn-warning");
-//     decreaseButton.onclick = () => {
-//       // Decrease the count for the item, but not below 0
-//       addedItems[index].count = Math.max((addedItems[index].count || 0) - 1, 0);
-//       itemCount.textContent = `Count: ${addedItems[index].count}`;
-//       updateCartList();
-//     };
+    let decreaseButton = document.createElement("button");
+    decreaseButton.textContent = "-";
+    decreaseButton.classList.add("btn", "btn-sm", "btn-warning");
+    decreaseButton.onclick = () => {
+      // Decrease the count for the item, but not below 0
+      addedItems[index].count = Math.max((addedItems[index].count || 0) - 1, 0);
+      itemCount.textContent = `Count: ${addedItems[index].count}`;
+      updateCartList();
+    };
 
-//     let removeButton = document.createElement("button");
-//     removeButton.textContent = "Remove";
-//     removeButton.classList.add("btn", "btn-sm", "btn-danger", "remove-button");
-//     removeButton.onclick = () => {
-//       // Remove the item from the addedItems array
-//       addedItems.splice(index, 1);
-//       updateCartList();
-//     };
+    let removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.classList.add("btn", "btn-sm", "btn-danger", "remove-button");
+    removeButton.onclick = () => {
+      // Remove the item from the addedItems array
+      addedItems.splice(index, 1);
+      updateCartList();
+    };
 
-//     cartItem.appendChild(itemName);
-//     cartItem.appendChild(itemCount);
-//     cartItem.appendChild(increaseButton);
-//     cartItem.appendChild(decreaseButton);
-//     cartItem.appendChild(removeButton);
+    cartItem.appendChild(itemName);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(increaseButton);
+    cartItem.appendChild(decreaseButton);
+    cartItem.appendChild(removeButton);
 
-//     cartList.appendChild(cartItem);
+    cartList.appendChild(cartItem);
 
-//     // Calculate the total value
-//     totalValue += (item.price * (item.count || 1));
-//   });
+    // Calculate the total value
+    totalValue += (item.price * (item.count || 1));
+  });
 
-//   // Update the total value label
-//   totalValueLabel.textContent = `Total Value: $${totalValue.toFixed(2)}`;
-// }
+  // Update the total value label
+  totalValueLabel.textContent = `Total Value: $${totalValue.toFixed(2)}`;
+}
 
 // updateCartList(); // Initial update
 
 
-// generateHTML(burgerArray);
+generateHTML(burgerArray);
