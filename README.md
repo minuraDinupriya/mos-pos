@@ -1,2 +1,2 @@
-user name=1
+user name=1, 
 password=1
