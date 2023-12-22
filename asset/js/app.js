@@ -351,6 +351,7 @@ function generateHTML(array) {
         name: item.itemName,
         price: item.price,
         discount: item.discount,
+        count:1,
       };
     
       addedItems.push(obj);
@@ -368,6 +369,7 @@ function generateHTML(array) {
 
 
 function updateCartList() {
+  let totalValueLabel=document.querySelector(".totalValueLabel")
   let totalValue = 0;
   cartList.innerHTML = ""; // Clear the existing list
 
