@@ -1,113 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="./asset/css/style.css" />
 
     <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
-        <a href="" class="navbar-brand">MOS Burgers</a>
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#ccsl"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="ccsl">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="/index.html" class="nav-link pr-5">DashBoard</a>
-            </li>
-            <li class="nav-item">
-              <a href="/view/orders.html" class="nav-link pr-5">Orders</a>
-            </li>
-            <li class="nav-item">
-              <a href="/view/customer-view.html" class="nav-link pr-5"
-                >Customers</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="/view/item-view.html" class="nav-link pr-5"
-                >Food Items</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="/view/reports.html" class="nav-link pr-5">Reports</a>
-            </li>
-            <li class="nav-item"><a href="" class="nav-link pr-5">Exit</a></li>
-          </ul>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"/>
+    <title>Login Page</title>
+</head>
+<body style="background: url('./asset/images/shop.jpg') no-repeat center center fixed;
+            background-size: cover; filter: blur(0px); height: 100vh; margin: 0;">
+<div class="container-fluid login-container">
+    <div class="row justify-content-center align-items-center login-row">
+        <div class="col-md-4 login-form" style="background-color: rgba(255, 255, 255, 0.6); border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
+            <h2 class="text-center mb-4 font-weight-bold">Burger Shop POS System</h2>
+            <form id="loginForm">
+                <!-- Inside the existing form element -->
+                <div class="form-group">
+                    <label for="loginUsername" class="font-weight-bold">Username</label>
+                    <input type="text" class="form-control" id="loginUsername" placeholder="Enter your username"
+                           required/>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" class="font-weight-bold">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password"
+                           required/>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="validateLogin()">Login</button>
+            </form>
         </div>
-      </nav>
     </div>
+</div>
 
-    <br />
+<script src="./asset/js/app.js"></script>
 
-    <div>
-      <!-- items and cart-->
-
-      <div class="col-3 position-fixed" id="add-to-cart">
-        <div class="container">
-          
-
-          <!-- Shopping Cart Section start-->
-          <div class="cart-section">
-            <h1 class="text-center">Shopping Cart</h1>
-            <ul id="cartList"></ul>
-          </div>
-          <!-- Shopping Cart Section start-->
-          <div class="totalValueLabel text-">
-            Total Value:
-          </div>
-          
-
-        </div>
-          
-      </div>
-
-    </div>
-    
-    <!-- items section start-->
-    <div class="row">
-      <div class="col-9 d-flex flex-wrap itm"></div>
-    </div>
-    <!-- items section end-->
-
-
-    <script src="/asset/js/app.js"></script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
 </html>
+

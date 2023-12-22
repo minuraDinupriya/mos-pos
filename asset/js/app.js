@@ -294,7 +294,7 @@ function generateHTML(array) {
     cardTitle.classList.add("card-title","text-danger");
 
     let image = document.createElement("img");
-    image.src = "./asset/images/pic.jpg";
+    image.src = "../asset/images/pic.jpg";
     image.classList.add("card-img-top");
     cardBody.appendChild(image);
 
@@ -426,10 +426,32 @@ function updateCartList() {
   });
 
   // Update the total value label
-  totalValueLabel.textContent = `Total Value: $${totalValue.toFixed(2)}`;
+  totalValueLabel.textContent = `Total Value: Rs.${totalValue.toFixed(2)}`;
+  // totalValueLabel.classList.add("fw-bold")
 }
 
 // updateCartList(); // Initial update
 
 
 generateHTML(burgerArray);
+
+// login form start
+
+function validateLogin() {
+  const validCredentials = {
+    username: '1',
+    password: '1',
+  };
+
+  const usernameInput = document.getElementById('loginUsername').value;
+  const passwordInput = document.getElementById('loginPassword').value;
+
+  if (usernameInput === validCredentials.username && passwordInput === validCredentials.password) {
+      alert('Login successful! Redirecting...');
+      window.location.href = '/view/dashBoard.html';
+  } else {
+      alert('Invalid username or password. Please try again.');
+  }
+}
+
+// login form end
