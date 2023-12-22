@@ -63,7 +63,7 @@ body{
         width: 5rem;
     }
     
-    .fs-19 {
+    /* .fs-19 {
         font-size: 19px;
     }
     
@@ -113,12 +113,12 @@ body{
     
     .mt-1 {
         margin-top: 0.25rem!important;
-    }
+    } 
 
     /* food items////////////////////////////////////////////////
     /////////////////////////////////////////////////////////// */
 
-    /* Background color classes */
+    /* Background color classes
 .bg-white {
     background-color: #ffffff !important;
   }
@@ -157,7 +157,7 @@ body{
   }
   
   /* Button classes */
-  .btn {
+  /* .btn {
       border-radius: 2px;
       position: relative;
   }
@@ -165,7 +165,7 @@ body{
       border: 0px !important;
   }
   /* Button colors */
-  .btn.btn-white {
+  /* .btn.btn-white {
       background: #ffffff;
       color: #666666;
       border: 1px solid #dddddd;
@@ -212,8 +212,8 @@ body{
   .btn.btn-red:active {
       color: #ffffff;
       background: #e52d16;
-  }
-  .btn.btn-green {
+  } */
+  /* .btn.btn-green {
       color: #ffffff;
       background: #51d466;
       border: 1px solid #30c247;
@@ -260,8 +260,8 @@ body{
   .btn.btn-orange:active {
       background: #f69110;
       color: #ffffff;
-  }
-  .btn.btn-yellow {
+  } */ 
+  /* .btn.btn-yellow {
       background: #fcd419;
       color: #ffffff;
       border: 1px solid #dfb803;
@@ -374,4 +374,4 @@ body{
   .shop-items .item  .ecom  a.btn:hover{
       background:#fff;
       color:#777;
-  }                
+  }                  {}*/

@@ -369,6 +369,7 @@ function generateHTML(array) {
 
 
 function updateCartList() {
+
   let totalValueLabel=document.querySelector(".totalValueLabel")
   let totalValue = 0;
   cartList.innerHTML = ""; // Clear the existing list
@@ -398,7 +399,7 @@ function updateCartList() {
     decreaseButton.textContent = "-";
     decreaseButton.classList.add("btn", "btn-sm", "btn-warning");
     decreaseButton.onclick = () => {
-      // Decrease the count for the item, but not below 0
+      // Decrease the count for the item,  not below 0
       addedItems[index].count = Math.max((addedItems[index].count || 0) - 1, 0);
       itemCount.textContent = `Count: ${addedItems[index].count}`;
       updateCartList();
@@ -425,12 +426,9 @@ function updateCartList() {
     totalValue += (item.price * (item.count || 1));
   });
 
-  // Update the total value label
   totalValueLabel.textContent = `Total Value: Rs.${totalValue.toFixed(2)}`;
-  // totalValueLabel.classList.add("fw-bold")
-}
 
-// updateCartList(); // Initial update
+}
 
 
 generateHTML(burgerArray);
@@ -448,10 +446,114 @@ function validateLogin() {
 
   if (usernameInput === validCredentials.username && passwordInput === validCredentials.password) {
       alert('Login successful! Redirecting...');
-      window.location.href = '/view/dashBoard.html';
+      window.location.href = './view/dashBoard.html';
   } else {
       alert('Invalid username or password. Please try again.');
   }
 }
 
 // login form end
+
+
+// item form
+
+console.log("display Items")
+
+// item view js start
+// displayItems();
+
+document.addEventListener("DOMContentLoaded", function () {
+  displayItems();
+});
+
+function displayItems() {
+  console.log(1);
+  const itemContainer = document.getElementById("itemContainer");
+  itemContainer.innerHTML = "";
+
+  burgerArray.forEach(item => {
+      const card = createItemCard(item);
+      itemContainer.appendChild(card);
+  });
+}
+
+function createItemCard(item) {
+  const card = document.createElement("div");
+  card.classList.add("col-lg-3", "mb-4");
+
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card");
+
+  const cardContent = `
+      <div class="card-body">
+          <h5 class="card-title">${item.itemName}</h5>
+          <p class="card-text">Item Code: ${item.itemCode}</p>
+          <p class="card-text">Price: Rs.${item.price.toFixed(2)}</p>
+          <p class="card-text">Discount: ${item.discount || "None"}</p>
+          <button class="btn btn-danger" onclick="deleteItem('${item.itemCode}')">Delete</button>
+          <button class="btn btn-primary ml-2" data-toggle="modal" data-target="#editModal"
+                  onclick="openEditModal('${item.itemCode}')">Edit
+          </button>
+      </div>
+  `;
+
+  card.innerHTML = cardContent;
+  return card;
+}
+
+function deleteItem(itemCode) {
+  const index = burgerArray.findIndex(item => item.itemCode === itemCode);
+  if (index !== -1) {
+      burgerArray.splice(index, 1);
+      displayItems();
+  }
+}
+
+function openEditModal(itemCode) {
+  // Implement logic to open the edit modal with item details
+  const selectedItem = burgerArray.find(item => item.itemCode === itemCode);
+
+  // Populate the modal fields with the selected item details
+  document.getElementById("editItemCode").value = selectedItem.itemCode;
+  document.getElementById("editItemName").value = selectedItem.itemName;
+  document.getElementById("editItemPrice").value = selectedItem.price;
+  document.getElementById("editItemDiscount").value = selectedItem.discount || "";
+}
+
+function saveChanges() {
+  // Implement logic to save changes to the burgerArray
+  const itemCode = document.getElementById("editItemCode").value;
+  const selectedItem = burgerArray.find(item => item.itemCode === itemCode);
+
+  if (selectedItem) {
+      selectedItem.itemName = document.getElementById("editItemName").value;
+      selectedItem.price = parseFloat(document.getElementById("editItemPrice").value);
+      selectedItem.discount = document.getElementById("editItemDiscount").value || null;
+
+      // Close the modal
+      $("#editModal").modal("hide");
+
+      // Refresh the displayed items
+      displayItems();
+  }
+}
+
+// item view js end
+
+
+
+// // search
+// function filterItems() {
+//     const searchBox = document.getElementById('searchBox');
+//     const searchTerm = searchBox.value.toLowerCase();
+
+//     const filteredItems = burgerArray.filter(item =>
+//       item.itemName.toLowerCase().includes(searchTerm) || item.itemCode.toLowerCase().includes(searchTerm)
+//     );
+
+//     generateHTML(filteredItems);
+//   }
+
+
+
+
