@@ -366,46 +366,6 @@ function generateHTML(array) {
   });
 }
 
-// function updateCartList() {
-//   let cartList = document.getElementById("cartList");
-//   cartList.innerHTML = ""; // Clear the existing list
-
-//   addedItems.forEach((item, index) => {
-//     let cartItem = document.createElement("li");
-//     cartItem.classList.add("cart-item");
-
-//     let itemName = document.createElement("span");
-//     itemName.textContent = `${item.name} - ${item.price}`;
-
-//     let itemCount = document.createElement("span");
-//     itemCount.textContent = `Count: 1`; // Initial count
-
-//     let increaseButton = document.createElement("button");
-//     increaseButton.textContent = "+";
-//     increaseButton.classList.add("btn", "btn-sm", "btn-success");
-//     increaseButton.onclick = () => {
-//       // Increase the count for the item
-//       addedItems[index].count = (addedItems[index].count || 0) + 1;
-//       itemCount.textContent = `Count: ${addedItems[index].count}`;
-//     };
-
-//     let removeButton = document.createElement("button");
-//     removeButton.textContent = "Remove";
-//     removeButton.classList.add("btn", "btn-sm", "btn-danger", "remove-button");
-//     removeButton.onclick = () => {
-//       // Remove the item from the addedItems array
-//       addedItems.splice(index, 1);
-//       updateCartList();
-//     };
-
-//     cartItem.appendChild(itemName);
-//     cartItem.appendChild(itemCount);
-//     cartItem.appendChild(increaseButton);
-//     cartItem.appendChild(removeButton);
-
-//     cartList.appendChild(cartItem);
-//   });
-// }
 
 function updateCartList() {
   let totalValue = 0;
@@ -417,8 +377,7 @@ function updateCartList() {
 
     let itemName = document.createElement("span");
     itemName.textContent = `${item.name} - Rs.${item.price}.00`;
-    let br = document.createElement("br");
-    itemName.appendChild(br);
+    itemName.appendChild(document.createElement("br"));
 
     let itemCount = document.createElement("span");
     itemCount.textContent = `Count: ${item.count || 1}`; // Initial count
